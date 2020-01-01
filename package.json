@@ -1,6 +1,8 @@
 {
   "name": "zarbis",
   "version": "0.1.0",
+  "description": "나만의 대시보드, 자비스",
+  "author": "Evan Moon <bboydart91@gmail.com>",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
