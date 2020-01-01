@@ -1,12 +1,7 @@
 import { AxiosRequestConfig } from 'axios';
 import { APICore } from 'src/api/APICore';
 import { OPEN_WEATHER_API_KEY } from 'src/constants';
-import { WeatherDataResponse, WeatherData } from 'src/interfaces/OpenWeather';
-
-interface Pos {
-  lat: number;
-  lon: number;
-}
+import { WeatherDataResponse, WeatherData, Pos } from 'src/interfaces';
 
 class APIOpenWeather extends APICore {
   constructor (options: AxiosRequestConfig, key = '') {

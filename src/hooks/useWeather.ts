@@ -8,7 +8,6 @@ export function useWeather (): WeatherData | null {
   const geolocation = useGeolocation();
 
   useEffect(() => {
-    console.log(geolocation);
     if (geolocation) {
       APIOpenWeather.fetchWeatherByGeoLocation({
         lat: geolocation.coords.latitude,
