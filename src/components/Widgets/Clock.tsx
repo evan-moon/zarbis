@@ -8,7 +8,7 @@ interface Props extends WidgetProps {
   showDate?: boolean;
 }
 
-const Clock: React.FC<Props> = ({
+const ClockWidget: React.FC<Props> = ({
   horizontal,
   vertical,
   showDate = true,
@@ -52,4 +52,4 @@ const DateView = styled.div`
   text-align: right;
 `;
 
-export default Clock;
+export default ClockWidget;
