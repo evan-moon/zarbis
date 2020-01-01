@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react';
-import { WidgetProps } from 'src/interfaces/Props';
+import { WidgetProps } from 'src/interfaces';
 import styled from 'styled-components';
 import { getCssPosition } from 'src/utils';
 
@@ -15,6 +15,10 @@ const Widget: React.FC<Props> = ({ horizontal, vertical, children }) => {
 
 const Wrapper = styled.div<WidgetProps>`
   position: absolute;
+  * {
+    color: #ffffff;
+    font-weight: lighter;
+  }
   ${({ horizontal, vertical }) => getCssPosition({ horizontal, vertical })}
 `;
 

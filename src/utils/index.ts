@@ -1,5 +1,3 @@
-import { getCssPosition } from './getCssPosition';
-
-export {
-  getCssPosition,
-};
+export * from './getCssPosition';
+export * from './convertTemperature';
+export * from './getAirQualityName';

@@ -1,22 +1,22 @@
 import { useState, useEffect } from 'react';
-import { useGeolocation } from './useGeolocation';
+import { useGeoLocation } from 'src/hooks';
 import APIOpenWeather from 'src/api/APIOpenWeather';
 import { WeatherData } from 'src/interfaces/OpenWeather';
 
 export function useWeather (): WeatherData | null {
   const [weather, setWeather] = useState<WeatherData | null>(null);
-  const geolocation = useGeolocation();
+  const geoLocation = useGeoLocation();
 
   useEffect(() => {
-    if (geolocation) {
+    if (geoLocation) {
       APIOpenWeather.fetchWeatherByGeoLocation({
-        lat: geolocation.coords.latitude,
-        lon: geolocation.coords.longitude
+        lat: geoLocation.coords.latitude,
+        lon: geoLocation.coords.longitude
       }).then(res => {
         setWeather(res);
       });
     }
-  }, [geolocation]);
+  }, [geoLocation]);
 
   return weather ? weather : null;
 }

@@ -1,9 +1,9 @@
 import React, { useMemo } from 'react';
-import { WidgetProps } from 'src/interfaces/Props';
+import { WidgetProps } from 'src/interfaces';
 import Widget from 'src/components/Widgets/Widget';
-import { convertTemperature } from 'src/utils/convertTemperature';
+import { convertTemperature } from 'src/utils';
 import { TemperatureUnit } from 'src/constants';
-import { useWeather } from 'src/hooks/useWeather';
+import { useWeather } from 'src/hooks';
 import styled from 'styled-components';
 
 const WeatherWidget: React.FC<WidgetProps> = ({ horizontal, vertical }) => {
@@ -12,7 +12,7 @@ const WeatherWidget: React.FC<WidgetProps> = ({ horizontal, vertical }) => {
     if (!weatherData) {
       return Infinity;
     }
-    return convertTemperature(weatherData.temp, TemperatureUnit.CELSIUS);
+    return convertTemperature(weatherData.temp, TemperatureUnit.Celsius);
   }, [weatherData]);
 
   if (!weatherData) {
@@ -24,26 +24,19 @@ const WeatherWidget: React.FC<WidgetProps> = ({ horizontal, vertical }) => {
       <WeatherView>
         {weatherData.weather.main}, {celsiusTemp}<small>&#8451;</small>
       </WeatherView>
-      <LocationView>
+      <div>
         {weatherData.city}, {weatherData.country}
-      </LocationView>
+      </div>
     </Widget>
   )
 }
 
 const WeatherView = styled.div`
-  color: #ffffff;
   font-size: 1.5rem;
-  font-weight: lighter;
   margin-bottom: .5rem;
   small {
     font-size: 1rem;
   }
-`;
-
-const LocationView = styled.div`
-  color: #ffffff;
-  font-weight: lighter;
 `;
 
 export default WeatherWidget;

@@ -1,3 +1,4 @@
+export * from './Aqi';
 export * from './OpenWeather';
 export * from './Props';
 

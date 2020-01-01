@@ -1,18 +1,18 @@
 import { AxiosRequestConfig } from 'axios';
 import { APICore } from 'src/api/APICore';
 import { AQI_API_KEY } from 'src/constants';
-import { Pos } from 'src/interfaces';
+import { AqiData, AqiDataResponse, Pos } from 'src/interfaces';
 
 class APIAirQuality extends APICore {
   constructor (options: AxiosRequestConfig = {}, key = '') {
     super(options, key);
   }
 
-  fetchAirQuality ({ lat, lon }: Pos) {
-    const endpoint = `/feed/geo:${lat};${lon}/`;
-    return this._get(endpoint, {
-      token: this.token,
-    });
+  async fetchAirQuality ({ lat, lon }: Pos): Promise<AqiData> {
+    const response: AqiDataResponse = (await this._get(`/feed/geo:${lat};${lon}/`, { token: this.token })).data.data;
+    return {
+      aqi: response.aqi,
+    }
   }
 }
 

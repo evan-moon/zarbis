@@ -2,7 +2,7 @@ import React, { useEffect, useState, useMemo } from 'react';
 import styled from 'styled-components';
 import { format } from 'date-fns';
 import Widget from 'src/components/Widgets/Widget';
-import { WidgetProps } from 'src/interfaces/Props';
+import { WidgetProps } from 'src/interfaces';
 
 interface Props extends WidgetProps {
   showDate?: boolean;
@@ -43,12 +43,9 @@ const ClockWidget: React.FC<Props> = ({
 const HourAndSecondView = styled.div`
   font-size: 8rem;
   font-weight: lighter;
-  color: #ffffff;
 `;
 const DateView = styled.div`
   font-size: 2rem;
-  font-weight: lighter;
-  color: #ffffff;
   text-align: right;
 `;
 
