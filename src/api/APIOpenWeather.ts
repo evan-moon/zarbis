@@ -1,6 +1,7 @@
 import { AxiosRequestConfig } from 'axios';
 import { APICore } from 'src/api/APICore';
 import { OPEN_WEATHER_API_KEY } from 'src/constants';
+import { WeatherDataResponse, WeatherData } from 'src/interfaces/OpenWeather';
 
 interface Pos {
   lat: number;
@@ -12,12 +13,18 @@ class APIOpenWeather extends APICore {
     super(options, key);
   }
 
-  fetchWeatherByGeoLocation ({ lat, lon }: Pos) {
-    return this._get('', {
-      lat,
-      lon,
-      appid: this.token,
-    });
+  async fetchWeatherByGeoLocation ({ lat, lon }: Pos): Promise<WeatherData> {
+    try {
+      const response: WeatherDataResponse = (await this._get('', { lat, lon, appid: this.token })).data;
+      return {
+        weather: response.weather[0],
+        city: response.name,
+        country: response.sys.country,
+        temp: response.main.temp,
+      };
+    } catch (e) {
+      throw e;
+    }
   }
 }
 

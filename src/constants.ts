@@ -8,3 +8,9 @@ export enum Position {
   Right='RIGHT',
   Center='CENTER',
 };
+
+export enum TemperatureUnit {
+  CELSIUS='CELSIUS',
+  FAHRENHEIT='FAHRENHEIT',
+  KELVIN='KELVIN',
+};
