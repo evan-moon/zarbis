@@ -1,22 +1,23 @@
-import { useState, useEffect } from 'react';
-import { useGeoLocation } from './useGeoLocation';
-import APIAirQuality from 'src/api/APIAirQuality';
-import { AqiData } from 'src/interfaces';
+import { useState, useEffect } from "react";
+import { useGeoLocation } from "./useGeoLocation";
+import APIAirQuality from "src/api/APIAirQuality";
+import { AqiData } from "src/models";
 
-export function useAirQuality (): AqiData | null {
+export function useAirQuality(): AqiData | null {
   const [aqi, setAqi] = useState<AqiData | null>(null);
   const geolocation = useGeoLocation();
 
   useEffect(() => {
-    if (geolocation) {
-      APIAirQuality.fetchAirQuality({
-        lat: geolocation.coords.latitude,
-        lon: geolocation.coords.longitude
-      }).then(res => {
-        setAqi(res);
-      });
-    }
+    (async () => {
+      if (geolocation) {
+        const response = await APIAirQuality.fetchAirQuality({
+          lat: geolocation.coords.latitude,
+          lon: geolocation.coords.longitude,
+        });
+        setAqi(response);
+      }
+    })();
   }, [geolocation]);
 
-  return aqi ? aqi : null;
+  return aqi != null ? aqi : null;
 }

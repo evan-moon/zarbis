@@ -1,15 +1,15 @@
-import React, { useMemo } from 'react';
-import Widget from 'src/components/Widgets/Widget';
-import { WidgetProps } from 'src/interfaces';
-import { useAirQuality } from 'src/hooks';
-import styled from 'styled-components';
-import { getAirQualityName } from 'src/utils';
+import React, { useMemo } from "react";
+import Widget from "src/components/Widgets/Widget";
+import { WidgetProps } from "src/models";
+import { useAirQuality } from "src/hooks";
+import styled from "styled-components";
+import { getAirQualityName } from "src/utils";
 
 const AirQualityWidget: React.FC<WidgetProps> = ({ horizontal, vertical }) => {
   const aqi = useAirQuality();
   const qualityName = useMemo<string>(() => {
     if (!aqi) {
-      return '';
+      return "";
     }
 
     return getAirQualityName(aqi.aqi);
@@ -25,7 +25,7 @@ const AirQualityWidget: React.FC<WidgetProps> = ({ horizontal, vertical }) => {
       <QualityValue>{aqi.aqi}</QualityValue>
       <QualityName>{qualityName}</QualityName>
     </Widget>
-  )
+  );
 };
 
 const QualityTitle = styled.div`
