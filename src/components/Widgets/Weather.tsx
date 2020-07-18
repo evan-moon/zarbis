@@ -1,14 +1,15 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useState } from 'react';
 import { WidgetProps } from 'src/models';
 import Widget from 'src/components/Widgets/Widget';
 import { convertTemperature } from 'src/utils';
 import { TemperatureUnit } from 'src/constants';
-import { useWeather } from 'src/hooks';
+import { useCurrentWeather } from 'src/hooks';
 import styled from 'styled-components';
 import WeatherIcon from 'src/components/WeatherIcon';
 
-const WeatherWidget: React.FC<WidgetProps> = ({ horizontal, vertical }) => {
-  const weatherData = useWeather();
+const WeatherWidget = ({ horizontal, vertical }: WidgetProps) => {
+  const weatherData = useCurrentWeather();
+  const [showDescription, setShowDescription] = useState(false);
   const celsiusTemp = useMemo<number>(() => {
     if (!weatherData) {
       return Infinity;
@@ -22,14 +23,17 @@ const WeatherWidget: React.FC<WidgetProps> = ({ horizontal, vertical }) => {
 
   return (
     <Widget horizontal={horizontal} vertical={vertical}>
-      <WeatherView>
-        <WeatherIcon icon={weatherData.weather.icon} />
-        {weatherData.weather.main}, {celsiusTemp}
-        <small>&#8451;</small>
-      </WeatherView>
-      <LocationView>
-        {weatherData.city}, {weatherData.country}
-      </LocationView>
+      <div onMouseEnter={() => setShowDescription(true)} onMouseLeave={() => setShowDescription(false)}>
+        <WeatherView>
+          <WeatherIcon icon={weatherData.weather.icon} />
+          {weatherData.weather.main}, {celsiusTemp}
+          <small>&#8451;</small>
+        </WeatherView>
+        <LocationView>
+          {weatherData.city}, {weatherData.country}
+        </LocationView>
+      </div>
+      {showDescription && <TooltipDescription>{weatherData.type.description}</TooltipDescription>}
     </Widget>
   );
 };
@@ -45,6 +49,18 @@ const WeatherView = styled.div`
 
 const LocationView = styled.div`
   text-align: right;
+`;
+
+const TooltipDescription = styled.div`
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translate(-50%, 100%);
+  width: 80%;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
+  text-align: center;
 `;
 
 export default WeatherWidget;

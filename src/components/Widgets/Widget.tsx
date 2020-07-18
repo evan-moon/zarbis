@@ -7,10 +7,10 @@ interface Props extends WidgetProps {
   children: ReactNode;
 }
 
-const Widget: React.FC<Props> = ({ horizontal, vertical, children }) => {
+const Widget = ({ horizontal, vertical, children }: Props) => {
   return (
     <Wrapper horizontal={horizontal} vertical={vertical}>
-      {children}
+      <Inner>{children}</Inner>
     </Wrapper>
   );
 };
@@ -22,6 +22,9 @@ const Wrapper = styled.div<WidgetProps>`
     font-weight: lighter;
   }
   ${({ horizontal, vertical }) => getCssPosition({ horizontal, vertical })}
+`;
+const Inner = styled.div`
+  position: relative;
 `;
 
 export default Widget;

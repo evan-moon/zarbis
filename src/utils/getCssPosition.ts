@@ -1,4 +1,4 @@
-import { WidgetProps } from 'src/models/Props';
+import { WidgetProps } from 'src/models/Widget';
 import { Position } from 'src/constants';
 
 export function getCssPosition({ horizontal, vertical }: WidgetProps) {

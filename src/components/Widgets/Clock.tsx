@@ -8,7 +8,7 @@ interface Props extends WidgetProps {
   showDate?: boolean;
 }
 
-const ClockWidget: React.FC<Props> = ({ horizontal, vertical, showDate = true }) => {
+const ClockWidget = ({ horizontal, vertical, showDate = true }: Props) => {
   const intervalTime = 30000; // 30s
   const [time, setTime] = useState(new Date());
   const hourAndSecond = format(time, 'HH:mm');

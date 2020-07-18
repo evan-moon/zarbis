@@ -1,8 +1,4 @@
 export * from './Aqi';
-export * from './OpenWeather';
-export * from './Props';
-
-export interface Pos {
-  lat: number;
-  lon: number;
-}
+export * from './Weather';
+export * from './Widget';
+export * from './Coords';

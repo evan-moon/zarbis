@@ -5,7 +5,7 @@ import { useAirQuality } from 'src/hooks';
 import styled from 'styled-components';
 import { getAirQualityName } from 'src/utils';
 
-const AirQualityWidget: React.FC<WidgetProps> = ({ horizontal, vertical }) => {
+const AirQualityWidget = ({ horizontal, vertical }: WidgetProps) => {
   const aqi = useAirQuality();
   const qualityName = useMemo<string>(() => {
     if (!aqi) {

@@ -1,0 +1,222 @@
+{
+  "200": {
+    "category": "천둥번개",
+    "description": "천둥번개와 약한 비가 동반됩니다"
+  },
+  "201": {
+    "category": "천둥번개",
+    "description": "천둥번개와 비가 동반됩니다"
+  },
+  "202": {
+    "category": "천둥번개",
+    "description": "천둥번개와 강한 비가 동반됩니다"
+  },
+  "210": {
+    "category": "천둥번개",
+    "description": "약한 천둥번개가 치고 있습니다"
+  },
+  "211": {
+    "category": "천둥번개",
+    "description": "천둥번개가 치고 있습니다"
+  },
+  "212": {
+    "category": "천둥번개",
+    "description": "강한 천둥번개가 치고 있습니다"
+  },
+  "221": {
+    "category": "천둥번개",
+    "description": "예측하기 힘든 정도로 천둥번개가 치고 있습니다"
+  },
+  "230": {
+    "category": "천둥번개",
+    "description": "천둥번개와 약간의 이슬비가 동반됩니다"
+  },
+  "231": {
+    "category": "천둥번개",
+    "description": "천둥번개와 이슬비가 동반됩니다"
+  },
+  "232": {
+    "category": "천둥번개",
+    "description": "천둥번개와 이슬비가 동반됩니다"
+  },
+  "300": {
+    "category": "이슬비",
+    "description": "촉촉한 이슬비가 내리고 있습니다"
+  },
+  "301": {
+    "category": "이슬비",
+    "description": "촉촉한 이슬비가 내리고 있습니다"
+  },
+  "302": {
+    "category": "이슬비",
+    "description": "촉촉한 이슬비가 내리고 있습니다"
+  },
+  "310": {
+    "category": "이슬비",
+    "description": "주륵주륵 비가 내리고 있습니다"
+  },
+  "311": {
+    "category": "이슬비",
+    "description": "주륵주륵 비가 내리고 있습니다"
+  },
+  "312": {
+    "category": "이슬비",
+    "description": "주륵주륵 비가 세차게 내리고 있습니다"
+  },
+  "313": {
+    "category": "이슬비",
+    "description": "주륵주륵 비가 세차게 내리고 있습니다"
+  },
+  "314": {
+    "category": "이슬비",
+    "description": "주륵주륵 비가 세차게 내리고 있습니다"
+  },
+  "321": {
+    "category": "이슬비",
+    "description": "주륵주륵 비가 세차게 내리고 있습니다"
+  },
+  "500": {
+    "category": "비",
+    "description": "약한 비가 내리고 있습니다"
+  },
+  "501": {
+    "category": "비",
+    "description": "비가 내리고 있습니다"
+  },
+  "502": {
+    "category": "비",
+    "description": "강한 비가 내리고 있습니다"
+  },
+  "503": {
+    "category": "비",
+    "description": "미칠듯이 비가 내리고 있습니다"
+  },
+  "504": {
+    "category": "비",
+    "description": "집 밖에 나가면 안 될 정도로 미칠듯이 비가 내리고 있습니다."
+  },
+  "511": {
+    "category": "비",
+    "description": "차가운 비가 내리고 있습니다"
+  },
+  "520": {
+    "category": "비",
+    "description": "폭우가 쏟아지고 있습니다"
+  },
+  "521": {
+    "category": "비",
+    "description": "폭우가 쏟아지고 있습니다"
+  },
+  "522": {
+    "category": "비",
+    "description": "폭우가 쏟아지고 있습니다"
+  },
+  "523": {
+    "category": "비",
+    "description": "폭우가 쏟아지고 있습니다"
+  },
+  "600": {
+    "category": "눈",
+    "description": "약하게 눈이 내리고 있습니다"
+  },
+  "601": {
+    "category": "눈",
+    "description": "눈이 내리고 있습니다"
+  },
+  "602": {
+    "category": "눈",
+    "description": "폭설이 예상됩니다"
+  },
+  "611": {
+    "category": "눈",
+    "description": "약한 진눈깨비가 내리고 있습니다"
+  },
+  "612": {
+    "category": "눈",
+    "description": "진눈깨비가 내리고 있습니다"
+  },
+  "613": {
+    "category": "눈",
+    "description": "강한 진눈깨비가 내리고 있습니다"
+  },
+  "615": {
+    "category": "눈",
+    "description": "약하게 비와 눈이 내리고 있습니다"
+  },
+  "616": {
+    "category": "눈",
+    "description": "비와 눈이 내리고 있습니다"
+  },
+  "620": {
+    "category": "눈",
+    "description": "함박눈이 내리고 있습니다"
+  },
+  "621": {
+    "category": "눈",
+    "description": "함박눈이 내리고 있습니다"
+  },
+  "622": {
+    "category": "눈",
+    "description": "함박눈이 내리고 있습니다"
+  },
+  "701": {
+    "category": "안개",
+    "description": "옅은 안개가 껴있습니다"
+  },
+  "702": {
+    "category": "안개",
+    "description": "스모그가 껴있습니다"
+  },
+  "721": {
+    "category": "안개",
+    "description": "습도는 낮지만 공기 중에 안 좋은 물질이 많습니다"
+  },
+  "731": {
+    "category": "안개",
+    "description": "미세먼지가 많습니다"
+  },
+  "741": {
+    "category": "안개",
+    "description": "안개가 껴있습니다"
+  },
+  "751": {
+    "category": "안개",
+    "description": "모래바람이 불고 있습니다"
+  },
+  "761": {
+    "category": "안개",
+    "description": "미세먼지가 많습니다"
+  },
+  "762": {
+    "category": "안개",
+    "description": "화산재가 날리고 있습니다"
+  },
+  "771": {
+    "category": "안개",
+    "description": "스콜이 찾아왔습니다"
+  },
+  "781": {
+    "category": "안개",
+    "description": "토네이토가 찾아왔습니다"
+  },
+  "800": {
+    "category": "맑음",
+    "description": "날씨가 좋네요!"
+  },
+  "801": {
+    "category": "구름",
+    "description": "약간의 구름이 있는 날씨입니다"
+  },
+  "802": {
+    "category": "구름",
+    "description": "구름이 흩어져 있는 날씨입니다"
+  },
+  "803": {
+    "category": "구름",
+    "description": "하늘에 구름이 덮혀있는 날씨입니다"
+  },
+  "804": {
+    "category": "구름",
+    "description": "하늘에 구름이 많이 껴서 흐린 날씨입니다"
+  }
+}

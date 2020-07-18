@@ -1,23 +1,24 @@
 import { useState, useEffect } from 'react';
 import { useGeoLocation } from 'src/hooks';
 import APIOpenWeather from 'src/api/APIOpenWeather';
-import { WeatherData } from 'src/models/OpenWeather';
+import { WeatherData } from 'src/models/Weather';
 
-export function useWeather(): WeatherData | null {
-  const [weather, setWeather] = useState<WeatherData | null>(null);
+export function useForecastWathers(): WeatherData[] {
+  const [weather, setWeather] = useState<WeatherData[]>([]);
   const geoLocation = useGeoLocation();
 
   useEffect(() => {
     (async () => {
       if (geoLocation) {
-        const response = await APIOpenWeather.fetchWeatherByGeoLocation({
+        const response = await APIOpenWeather.fetchForecast5daysByGeoLocation({
           lat: geoLocation.coords.latitude,
           lon: geoLocation.coords.longitude,
         });
+        console.log(response);
         setWeather(response);
       }
     })();
   }, [geoLocation]);
 
-  return weather != null ? weather : null;
+  return weather;
 }
