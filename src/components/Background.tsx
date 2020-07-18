@@ -1,11 +1,16 @@
 import React from 'react';
 import styled from 'styled-components';
-import DefaultImage from 'src/assets/default-background.jpg';
+import { WeatherData, WeatherType } from 'src/models';
+import { useWeatherPhoto } from 'src/hooks/useWeatherPhoto';
 
-const Background: React.FC = () => {
+interface Props {
+  weather: WeatherData | null;
+}
+const Background = ({ weather: weatherData }: Props) => {
+  const photo = useWeatherPhoto(weatherData?.type.category ?? WeatherType.알수없음);
   return (
     <BackgroundWrapper>
-      <BackgroundImage src={DefaultImage} />
+      <BackgroundImage src={photo} />
     </BackgroundWrapper>
   );
 };

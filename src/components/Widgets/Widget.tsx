@@ -19,7 +19,6 @@ const Wrapper = styled.div<WidgetProps>`
   position: absolute;
   * {
     color: #ffffff;
-    font-weight: lighter;
   }
   ${({ horizontal, vertical }) => getCssPosition({ horizontal, vertical })}
 `;

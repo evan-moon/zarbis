@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { useMemo, useState, useEffect } from 'react';
 import { WidgetProps } from 'src/models';
 import Widget from 'src/components/Widgets/Widget';
 import { convertTemperature } from 'src/utils';
@@ -6,8 +6,12 @@ import { TemperatureUnit } from 'src/constants';
 import { useCurrentWeather } from 'src/hooks';
 import styled from 'styled-components';
 import WeatherIcon from 'src/components/WeatherIcon';
+import { WeatherData } from 'src/models/Weather';
 
-const WeatherWidget = ({ horizontal, vertical }: WidgetProps) => {
+interface Props extends WidgetProps {
+  onChangeWeather?: (weather: WeatherData | null) => void;
+}
+const WeatherWidget = ({ horizontal, vertical, onChangeWeather }: Props) => {
   const weatherData = useCurrentWeather();
   const [showDescription, setShowDescription] = useState(false);
   const celsiusTemp = useMemo<number>(() => {
@@ -16,6 +20,10 @@ const WeatherWidget = ({ horizontal, vertical }: WidgetProps) => {
     }
     return convertTemperature(weatherData.temp, TemperatureUnit.Celsius);
   }, [weatherData]);
+
+  useEffect(() => {
+    onChangeWeather?.(weatherData);
+  }, [weatherData, onChangeWeather]);
 
   if (!weatherData) {
     return null;

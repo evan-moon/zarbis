@@ -19,6 +19,15 @@ export interface WeatherCodeTypeMap {
   [key: string]: WeatherCodeType;
 }
 
+export type DayNight = 'Day' | 'Night';
+export interface WeatherPhoto {
+  image: string;
+  link: string;
+  source: 'unsplash';
+  weathers: WeatherType[];
+  dayNight: DayNight[];
+}
+
 interface Weather {
   id: number;
   main: string;
