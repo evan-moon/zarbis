@@ -1,24 +1,20 @@
-import React, { useEffect, useState, useMemo } from "react";
-import styled from "styled-components";
-import { format } from "date-fns";
-import Widget from "src/components/Widgets/Widget";
-import { WidgetProps } from "src/models";
+import React, { useEffect, useState, useMemo } from 'react';
+import styled from 'styled-components';
+import { format } from 'date-fns';
+import Widget from 'src/components/Widgets/Widget';
+import { WidgetProps } from 'src/models';
 
 interface Props extends WidgetProps {
   showDate?: boolean;
 }
 
-const ClockWidget: React.FC<Props> = ({
-  horizontal,
-  vertical,
-  showDate = true,
-}) => {
+const ClockWidget: React.FC<Props> = ({ horizontal, vertical, showDate = true }) => {
   const intervalTime = 30000; // 30s
   const [time, setTime] = useState(new Date());
-  const hourAndSecond = format(time, "HH:mm");
+  const hourAndSecond = format(time, 'HH:mm');
 
   const formattedDate = useMemo(() => {
-    return format(time, "Y, MMM d");
+    return format(time, 'Y, MMM d');
   }, [time]);
 
   function updateTime() {

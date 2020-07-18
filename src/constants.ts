@@ -7,13 +7,13 @@ export enum Position {
   Left = 'LEFT',
   Right = 'RIGHT',
   Center = 'CENTER',
-};
+}
 
 export enum TemperatureUnit {
   Celsius = 'CELSIUS',
   Fahrenheit = 'FAHRENHEIT',
   Kelvin = 'KELVIN',
-};
+}
 
 export enum AirQualityName {
   Good = 'GOOD',

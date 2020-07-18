@@ -1,15 +1,14 @@
-import React, { useMemo } from "react";
-import { WidgetProps } from "src/models";
-import Widget from "src/components/Widgets/Widget";
-import { convertTemperature } from "src/utils";
-import { TemperatureUnit } from "src/constants";
-import { useWeather } from "src/hooks";
-import styled from "styled-components";
-import WeatherIcon from "src/components/WeatherIcon";
+import React, { useMemo } from 'react';
+import { WidgetProps } from 'src/models';
+import Widget from 'src/components/Widgets/Widget';
+import { convertTemperature } from 'src/utils';
+import { TemperatureUnit } from 'src/constants';
+import { useWeather } from 'src/hooks';
+import styled from 'styled-components';
+import WeatherIcon from 'src/components/WeatherIcon';
 
 const WeatherWidget: React.FC<WidgetProps> = ({ horizontal, vertical }) => {
   const weatherData = useWeather();
-  console.log(weatherData);
   const celsiusTemp = useMemo<number>(() => {
     if (!weatherData) {
       return Infinity;

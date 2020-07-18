@@ -8,7 +8,7 @@ const Background: React.FC = () => {
       <BackgroundImage src={DefaultImage} />
     </BackgroundWrapper>
   );
-}
+};
 
 const BackgroundWrapper = styled.div`
   position: absolute;

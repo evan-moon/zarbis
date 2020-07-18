@@ -1,7 +1,7 @@
-import { useState, useEffect } from "react";
-import { useGeoLocation } from "src/hooks";
-import APIOpenWeather from "src/api/APIOpenWeather";
-import { WeatherData } from "src/models/OpenWeather";
+import { useState, useEffect } from 'react';
+import { useGeoLocation } from 'src/hooks';
+import APIOpenWeather from 'src/api/APIOpenWeather';
+import { WeatherData } from 'src/models/OpenWeather';
 
 export function useWeather(): WeatherData | null {
   const [weather, setWeather] = useState<WeatherData | null>(null);

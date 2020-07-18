@@ -1,7 +1,7 @@
-import React, { ReactNode } from "react";
-import { WidgetProps } from "src/models";
-import styled from "styled-components";
-import { getCssPosition } from "src/utils";
+import React, { ReactNode } from 'react';
+import { WidgetProps } from 'src/models';
+import styled from 'styled-components';
+import { getCssPosition } from 'src/utils';
 
 interface Props extends WidgetProps {
   children: ReactNode;
