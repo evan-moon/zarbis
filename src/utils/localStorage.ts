@@ -15,6 +15,5 @@ export function setLocalStorageData<T = any>(key: string, value: T) {
     return;
   }
   const stringified = JSON.stringify(value);
-  console.log(value, stringified);
   return window.localStorage.setItem(key, stringified);
 }

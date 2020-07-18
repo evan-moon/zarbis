@@ -14,7 +14,6 @@ export function useForecastWathers(): WeatherData[] {
           lat: geoLocation.coords.latitude,
           lon: geoLocation.coords.longitude,
         });
-        console.log(response);
         setWeather(response);
       }
     })();

@@ -8,6 +8,7 @@ interface Props {
 }
 const Background = ({ weather: weatherData }: Props) => {
   const photo = useWeatherPhoto(weatherData?.type.category ?? WeatherType.알수없음);
+
   return (
     <BackgroundWrapper>
       <BackgroundImage src={photo} />

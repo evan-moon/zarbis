@@ -26,7 +26,6 @@ class APIOpenWeather extends APICore {
   async fetchForecast5daysByGeoLocation({ lat, lon }: Coords): Promise<any> {
     try {
       const response = (await this._get('/forecast', { lat, lon, appid: this.token })).data;
-      console.log(response);
       return response;
     } catch (e) {
       throw e;

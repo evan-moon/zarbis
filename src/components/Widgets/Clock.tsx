@@ -9,19 +9,20 @@ interface Props extends WidgetProps {
 }
 
 const ClockWidget = ({ horizontal, vertical, showDate = true }: Props) => {
-  const intervalTime = 30000; // 30s
+  const intervalTime = 1000; // 1s
   const [time, setTime] = useState(new Date());
-  const hourAndSecond = format(time, 'HH:mm');
-
+  const hours = useMemo(() => format(time, 'HH'), [time]);
+  const minutes = useMemo(() => format(time, 'mm'), [time]);
   const formattedDate = useMemo(() => {
     return format(time, 'Y, MMM d');
   }, [time]);
 
-  function updateTime() {
-    setTime(new Date());
-  }
+  const isShowColon = useMemo(() => time.getSeconds() % 2 === 0, [time]);
 
   useEffect(() => {
+    function updateTime() {
+      setTime(new Date());
+    }
     const interval = setInterval(updateTime, intervalTime);
     return () => {
       clearInterval(interval);
@@ -30,15 +31,25 @@ const ClockWidget = ({ horizontal, vertical, showDate = true }: Props) => {
 
   return (
     <Widget horizontal={horizontal} vertical={vertical}>
-      <HourAndSecondView>{hourAndSecond}</HourAndSecondView>
+      <HourAndSecondView>
+        {hours}
+        <Colon show={isShowColon}>:</Colon>
+        {minutes}
+      </HourAndSecondView>
       {showDate ? <DateView>{formattedDate}</DateView> : null}
     </Widget>
   );
 };
 
 const HourAndSecondView = styled.div`
-  font-size: 8rem;
+  font-size: 12rem;
+  letter-spacing: 0.1rem;
+`;
+const Colon = styled.span<{ show: boolean }>`
+  opacity: ${({ show }) => (show ? 1 : 0)};
   font-weight: lighter;
+  transition: opacity 0.2s ease-in-out;
+  font-size: 10rem;
 `;
 const DateView = styled.div`
   font-size: 2rem;
