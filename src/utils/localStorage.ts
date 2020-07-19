@@ -1,3 +1,5 @@
+import { isBefore } from 'date-fns';
+
 const canUseLocalStorage = () => window.localStorage != null;
 
 export function getLocalStorageData<T = unknown>(key: string): T | null {
@@ -5,15 +7,32 @@ export function getLocalStorageData<T = unknown>(key: string): T | null {
     console.error('localstorage is not supported');
     return null;
   }
-  const data = window.localStorage.getItem(key);
-  return JSON.parse(data!);
+
+  const rawData = window.localStorage.getItem(key);
+  if (rawData == null) {
+    return null;
+  }
+
+  const data = JSON.parse(rawData!);
+  if (data.expiry) {
+    const now = new Date();
+    const expiry = new Date(data.expiry);
+    return isBefore(now, expiry) ? data.value : null;
+  } else {
+    return data.value;
+  }
 }
 
-export function setLocalStorageData<T = any>(key: string, value: T) {
+export function setLocalStorageData<T = any>(key: string, value: T, expiry?: Date) {
   if (!canUseLocalStorage) {
     console.error('localstorage is not supported');
     return;
   }
-  const stringified = JSON.stringify(value);
-  return window.localStorage.setItem(key, stringified);
+
+  const data = {
+    value,
+    ...(() => (expiry ? { expiry: expiry.toISOString() } : {}))(),
+  };
+
+  return window.localStorage.setItem(key, JSON.stringify(data));
 }
