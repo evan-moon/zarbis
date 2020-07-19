@@ -3,7 +3,7 @@ import { WidgetProps } from 'src/models';
 import Widget from 'src/components/Widgets/Widget';
 import { convertTemperature } from 'src/utils';
 import { TemperatureUnit } from 'src/constants';
-import { useCurrentWeather } from 'src/hooks';
+import { useCurrentWeather, useForecastWeathers } from 'src/hooks';
 import styled from 'styled-components';
 import WeatherIcon from 'src/components/WeatherIcon';
 import { WeatherData } from 'src/models/Weather';
@@ -13,13 +13,16 @@ interface Props extends WidgetProps {
 }
 const WeatherWidget = ({ horizontal, vertical, onChangeWeather }: Props) => {
   const weatherData = useCurrentWeather();
+  const forecast = useForecastWeathers();
   const [showDescription, setShowDescription] = useState(false);
-  const celsiusTemp = useMemo<number>(() => {
+  const currentCelsiusTemp = useMemo<number>(() => {
     if (!weatherData) {
       return Infinity;
     }
     return convertTemperature(weatherData.temp, TemperatureUnit.Celsius);
   }, [weatherData]);
+
+  const forecastTemps = useMemo(() => {}, []);
 
   useEffect(() => {
     onChangeWeather?.(weatherData);
@@ -29,12 +32,14 @@ const WeatherWidget = ({ horizontal, vertical, onChangeWeather }: Props) => {
     return null;
   }
 
+  console.log(forecast);
+
   return (
     <Widget horizontal={horizontal} vertical={vertical}>
       <div onMouseEnter={() => setShowDescription(true)} onMouseLeave={() => setShowDescription(false)}>
         <WeatherView>
           <WeatherIcon icon={weatherData.weather.icon} />
-          {weatherData.weather.main}, {celsiusTemp}
+          {weatherData.weather.main}, {currentCelsiusTemp}
           <small>&#8451;</small>
         </WeatherView>
         <LocationView>
