@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { WeatherData, WeatherType } from 'src/models';
+import { WeatherData, WeatherType } from 'src/models/Weather';
 import { useWeatherPhoto } from 'src/hooks';
 
 interface Props {

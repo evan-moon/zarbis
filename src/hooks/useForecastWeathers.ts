@@ -1,23 +1,46 @@
-import { useState, useEffect } from 'react';
-import { useGeoLocation } from 'src/hooks';
+import { useEffect, useCallback } from 'react';
+import { useGeoLocation, useStateWithLocalCache } from 'src/hooks';
 import APIOpenWeather from 'src/api/APIOpenWeather';
-import { WeatherData } from 'src/models/Weather';
+import { ForecastWeathersData } from 'src/models/Weather';
+import { FORECAST_WEATHERS_CACHE_EXPIRY as expiry, WEATHER_REFRESH_INTERVAL } from 'src/constants';
+import { useIntervalEffect } from './useIntervalEffect';
 
-export function useForecastWathers(): WeatherData[] {
-  const [weather, setWeather] = useState<WeatherData[]>([]);
+const FORECAST_WEATHERS_STORAGE_KEY = 'forecast_weathers';
+export function useForecastWeathers(): ForecastWeathersData[] {
+  const [weathers, setWeathers] = useStateWithLocalCache<ForecastWeathersData[]>(
+    [],
+    FORECAST_WEATHERS_STORAGE_KEY,
+    expiry
+  );
   const geoLocation = useGeoLocation();
 
-  useEffect(() => {
-    (async () => {
-      if (geoLocation) {
-        const response = await APIOpenWeather.fetchForecast5daysByGeoLocation({
-          lat: geoLocation.coords.latitude,
-          lon: geoLocation.coords.longitude,
-        });
-        setWeather(response);
-      }
-    })();
-  }, [geoLocation]);
+  const fetchForecastWeathers = useCallback(async () => {
+    if (!geoLocation) {
+      return;
+    }
 
-  return weather;
+    const response = await APIOpenWeather.fetchForecastWeathersByGeoLocation({
+      lat: geoLocation.coords.latitude,
+      lon: geoLocation.coords.longitude,
+    });
+    const [, ...forcastWeathers] = response.daily.map(({ weather, temp, dt }) => ({
+      weather: weather[0],
+      temp: (temp.max + temp.min) / 2,
+      date: new Date(dt * 1000).toISOString(),
+    }));
+
+    setWeathers(forcastWeathers);
+  }, [geoLocation, setWeathers]);
+
+  useEffect(() => {
+    if (weathers.length === 0) {
+      fetchForecastWeathers();
+    }
+  }, [fetchForecastWeathers, weathers]);
+
+  useIntervalEffect(() => {
+    fetchForecastWeathers();
+  }, WEATHER_REFRESH_INTERVAL);
+
+  return weathers;
 }
