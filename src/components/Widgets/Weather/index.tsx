@@ -7,6 +7,7 @@ import { useCurrentWeather, useForecastWeathers } from 'src/hooks';
 import styled from 'styled-components';
 import WeatherIcon from 'src/components/WeatherIcon';
 import { WeatherData } from 'src/models/Weather';
+import ForecastGraph from './ForecastGraph';
 
 interface Props extends WidgetProps {
   onChangeWeather?: (weather: WeatherData | null) => void;
@@ -30,8 +31,6 @@ const WeatherWidget = ({ horizontal, vertical, onChangeWeather }: Props) => {
     return null;
   }
 
-  console.log(forecast);
-
   return (
     <Widget horizontal={horizontal} vertical={vertical}>
       <div onMouseEnter={() => setShowDescription(true)} onMouseLeave={() => setShowDescription(false)}>
@@ -40,6 +39,7 @@ const WeatherWidget = ({ horizontal, vertical, onChangeWeather }: Props) => {
           {weatherData.weather.main}, {currentCelsiusTemp}
           <small>&#8451;</small>
         </WeatherView>
+        <ForecastGraph weathers={forecast} />
         <LocationView>
           {weatherData.city}, {weatherData.country}
         </LocationView>

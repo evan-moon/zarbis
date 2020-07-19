@@ -25,10 +25,9 @@ export function useForecastWeathers(): ForecastWeathersData[] {
     });
     const [, ...forcastWeathers] = response.daily.map(({ weather, temp, dt }) => ({
       weather: weather[0],
-      temp: temp.max + temp.min / 2,
+      temp: (temp.max + temp.min) / 2,
       date: new Date(dt * 1000).toISOString(),
     }));
-    console.log(forcastWeathers);
 
     setWeathers(forcastWeathers);
   }, [geoLocation, setWeathers]);
