@@ -72,10 +72,10 @@
     "dayNight": ["Day", "Night"]
   },
   {
-    "image": "https://images.unsplash.com/photo-1486427751801-6e21da37dd9b",
-    "link": "https://unsplash.com/photos/9e5bnyDA_gs",
+    "image": "https://images.unsplash.com/photo-1482192596544-9eb780fc7f66",
+    "link": "https://unsplash.com/photos/89PFnHKg8HE",
     "source": "unsplash",
-    "author": "Jorge Garcia",
+    "author": "John Towner",
     "weathers": ["안개"],
     "dayNight": ["Day"]
   },
