@@ -24,3 +24,42 @@ export interface WeatherData {
   temp: number;
   type: WeatherCodeType;
 }
+
+interface DailyForecastWeather {
+  clouds: Clouds;
+  dew_point: number;
+  dt: number;
+  feels_like: {
+    day: number;
+    night: number;
+    eve: number;
+    morn: number;
+  };
+  humidity: number;
+  pop: number;
+  pressure: number;
+  rain: number;
+  sunrise: number;
+  sunset: number;
+  temp: {
+    day: number;
+    min: number;
+    max: number;
+    night: number;
+    eve: number;
+    morn: number;
+  };
+  cvi: number;
+  weather: Weather[];
+  wind_deg: 155;
+  wind_speed: number;
+}
+export interface ForecastWeathersDataResponse {
+  daily: DailyForecastWeather[];
+}
+
+export interface ForecastWeathersData {
+  weather: Weather;
+  temp: number;
+  date: string;
+}

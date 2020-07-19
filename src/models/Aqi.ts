@@ -1,10 +1,10 @@
-export interface Attribution {
+interface Attribution {
   url: string;
   name: string;
   logo: string;
 }
 
-export interface City {
+interface City {
   geo: number[];
   name: string;
   url: string;
@@ -13,7 +13,7 @@ export interface City {
 interface PollutionValue {
   v: number;
 }
-export interface Iaqi {
+interface Iaqi {
   co: PollutionValue;
   h: PollutionValue;
   no2: PollutionValue;
@@ -28,13 +28,13 @@ export interface Iaqi {
   wd: PollutionValue;
 }
 
-export interface Time {
+interface Time {
   s: string;
   tz: string;
   v: number;
 }
 
-export interface Debug {
+interface Debug {
   sync: string;
 }
 

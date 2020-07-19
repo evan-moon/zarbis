@@ -22,8 +22,6 @@ const WeatherWidget = ({ horizontal, vertical, onChangeWeather }: Props) => {
     return convertTemperature(weatherData.temp, TemperatureUnit.Celsius);
   }, [weatherData]);
 
-  const forecastTemps = useMemo(() => {}, []);
-
   useEffect(() => {
     onChangeWeather?.(weatherData);
   }, [weatherData, onChangeWeather]);
