@@ -23,7 +23,7 @@ export function useForecastWeathers(): ForecastWeathersData[] {
       lat: geoLocation.coords.latitude,
       lon: geoLocation.coords.longitude,
     });
-    const [, ...forcastWeathers] = response.daily.map(({ weather, temp, dt }) => ({
+    const forcastWeathers = response.daily.map(({ weather, temp, dt }) => ({
       weather: weather[0],
       temp: (temp.max + temp.min) / 2,
       date: new Date(dt * 1000).toISOString(),

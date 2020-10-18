@@ -3,7 +3,7 @@ import { WidgetProps } from 'src/models';
 import Widget from 'src/components/Widgets/Widget';
 import { convertTemperature } from 'src/utils';
 import { TemperatureUnit } from 'src/constants';
-import { useCurrentWeather, useForecastWeathers } from 'src/hooks';
+import { useCurrentWeather } from 'src/hooks';
 import styled from 'styled-components';
 import WeatherIcon from 'src/components/WeatherIcon';
 import { WeatherData } from 'src/models/Weather';
@@ -14,7 +14,6 @@ interface Props extends WidgetProps {
 }
 const WeatherWidget = ({ horizontal, vertical, onChangeWeather }: Props) => {
   const weatherData = useCurrentWeather();
-  const forecast = useForecastWeathers();
   const [showDescription, setShowDescription] = useState(false);
   const currentCelsiusTemp = useMemo<number>(() => {
     if (!weatherData) {
@@ -39,7 +38,7 @@ const WeatherWidget = ({ horizontal, vertical, onChangeWeather }: Props) => {
           {weatherData.weather.main}, {currentCelsiusTemp}
           <small>&#8451;</small>
         </WeatherView>
-        <ForecastGraph weathers={forecast} />
+        <ForecastGraph />
         <LocationView>
           {weatherData.city}, {weatherData.country}
         </LocationView>
