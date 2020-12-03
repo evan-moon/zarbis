@@ -1,26 +1,26 @@
 {
   "files": {
-    "main.css": "/static/css/main.86aed4bd.chunk.css",
-    "main.js": "/static/js/main.42cd10fc.chunk.js",
-    "main.js.map": "/static/js/main.42cd10fc.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.70a2beae.js",
-    "runtime-main.js.map": "/static/js/runtime-main.70a2beae.js.map",
-    "static/css/2.764ccc25.chunk.css": "/static/css/2.764ccc25.chunk.css",
-    "static/js/2.31e375e6.chunk.js": "/static/js/2.31e375e6.chunk.js",
-    "static/js/2.31e375e6.chunk.js.map": "/static/js/2.31e375e6.chunk.js.map",
-    "index.html": "/index.html",
-    "precache-manifest.ce020e99bf028af598b02dca7af14772.js": "/precache-manifest.ce020e99bf028af598b02dca7af14772.js",
-    "service-worker.js": "/service-worker.js",
-    "static/css/2.764ccc25.chunk.css.map": "/static/css/2.764ccc25.chunk.css.map",
-    "static/css/main.86aed4bd.chunk.css.map": "/static/css/main.86aed4bd.chunk.css.map",
-    "static/js/2.31e375e6.chunk.js.LICENSE": "/static/js/2.31e375e6.chunk.js.LICENSE",
-    "static/media/default-background.jpg": "/static/media/default-background.b8731b73.jpg"
+    "main.css": "/zarbis/static/css/main.86aed4bd.chunk.css",
+    "main.js": "/zarbis/static/js/main.b9604dc5.chunk.js",
+    "main.js.map": "/zarbis/static/js/main.b9604dc5.chunk.js.map",
+    "runtime-main.js": "/zarbis/static/js/runtime-main.932f1d34.js",
+    "runtime-main.js.map": "/zarbis/static/js/runtime-main.932f1d34.js.map",
+    "static/css/2.764ccc25.chunk.css": "/zarbis/static/css/2.764ccc25.chunk.css",
+    "static/js/2.d698bf14.chunk.js": "/zarbis/static/js/2.d698bf14.chunk.js",
+    "static/js/2.d698bf14.chunk.js.map": "/zarbis/static/js/2.d698bf14.chunk.js.map",
+    "index.html": "/zarbis/index.html",
+    "precache-manifest.f5067e4901584e7ee7016c526d3b5222.js": "/zarbis/precache-manifest.f5067e4901584e7ee7016c526d3b5222.js",
+    "service-worker.js": "/zarbis/service-worker.js",
+    "static/css/2.764ccc25.chunk.css.map": "/zarbis/static/css/2.764ccc25.chunk.css.map",
+    "static/css/main.86aed4bd.chunk.css.map": "/zarbis/static/css/main.86aed4bd.chunk.css.map",
+    "static/js/2.d698bf14.chunk.js.LICENSE": "/zarbis/static/js/2.d698bf14.chunk.js.LICENSE",
+    "static/media/default-background.jpg": "/zarbis/static/media/default-background.b8731b73.jpg"
   },
   "entrypoints": [
-    "static/js/runtime-main.70a2beae.js",
+    "static/js/runtime-main.932f1d34.js",
     "static/css/2.764ccc25.chunk.css",
-    "static/js/2.31e375e6.chunk.js",
+    "static/js/2.d698bf14.chunk.js",
     "static/css/main.86aed4bd.chunk.css",
-    "static/js/main.42cd10fc.chunk.js"
+    "static/js/main.b9604dc5.chunk.js"
   ]
 }
