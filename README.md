@@ -8,8 +8,6 @@
 - 현재 위치 기반 날씨 정보
 - 현재 위치 기반 미세먼지 정보
 
-> [Live Demo](https://zarbis.herokuapp.com/)
-
 ## Installation
 ```bash
 git clone https://github.com/evan-moon/zarbis.git
