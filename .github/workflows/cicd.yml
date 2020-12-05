@@ -17,6 +17,9 @@ jobs:
         run: yarn
       - name: Build
         run: yarn build
+        env:
+          REACT_APP_OPEN_WEATHER_API_KEY: ${{ secrets.OPEN_WEATHER_API_KEY }}
+          REACT_APP_AQI_API_KEY: ${{ secrets.AQI_API_KEY }}
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@3.7.1
         with:
